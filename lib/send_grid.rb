@@ -1,7 +1,12 @@
+require 'active_support/concern'
+
 module SendGrid
+  autoload :Configuration, 'send_grid/configuration'
   autoload :ApiHeader, 'send_grid/api_header'
   autoload :MailInterceptor, 'send_grid/mail_interceptor'
   autoload :VERSION, 'send_grid/version'
+
+  include Configuration
 
   def self.included(base)
     base.class_eval do
